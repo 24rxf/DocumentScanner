@@ -41,7 +41,7 @@ struct IntroView: View {
             
             Spacer(minLength: 0)
             Button {
-                //
+                showInroView = false
             } label: {
                 Text("Star using document scanner")
                     .fontWeight(.bold)

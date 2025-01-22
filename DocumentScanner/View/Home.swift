@@ -17,6 +17,7 @@ struct Home: View {
     @State var scanDocumenet: VNDocumentCameraScan?
     @Namespace private var animationID
     @Environment(\.modelContext) var modelContext
+    @AppStorage("showInroView") var showInroView: Bool = true
     
     var body: some View {
         NavigationStack {
@@ -39,6 +40,9 @@ struct Home: View {
             .safeAreaInset(edge: .bottom) {
                 CreateButton()
             }
+        }
+        .popover(isPresented: $showInroView) {
+            IntroView()
         }
         .fullScreenCover(isPresented: $showScannerView) {
             ScannerView { err in
